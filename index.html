@@ -8,7 +8,7 @@
     html, body {
         height: 100%;
         margin: 0;
-        background: url('https://images.unsplash.com/photo-1519125323398-675f0ddb6308') no-repeat center center fixed;
+        background: url('YOUR_ROSE_IMAGE_URL') no-repeat center center fixed; /* Replace with your image URL */
         background-size: cover;
         display: flex;
         justify-content: center;
@@ -49,15 +49,15 @@
 let noClicks = 0;
 const noResponses = [
     "Are you sure?",
-    "But I have chocolates!",
-    "I'll buy you pizza!",
-    "Did I mention the flowers?",
-    "There's a cute teddy bear too...",
-    "And a secret surprise gift!",
-    "You won't regret it!",
-    "Everyone deserves a second chance, right?",
-    "Is it something I said?",
-    "Okay, last chance: are you really sure?"
+    "Please say yes!",
+    "Why not give us a chance?",
+    "I'm waiting...",
+    "You're making me nervous!",
+    "Is there any hope?",
+    "Don't you like surprises?",
+    "Give it a thought...",
+    "Two's better than one!",
+    "Last chance, yes?"
 ];
 
 function yesResponse() {
@@ -70,7 +70,7 @@ function noResponse() {
     if (noClicks < noResponses.length) {
         questionElement.innerText = noResponses[noClicks];
         let yesButton = document.querySelector(".yes-button");
-        yesButton.style.fontSize = (16 + noClicks) + "px";
+        yesButton.style.fontSize = (16 + noClicks) + "px"; // Increase size less drastically
         yesButton.style.padding = (10 + noClicks * 2) + "px";
         noClicks++;
     } else {
