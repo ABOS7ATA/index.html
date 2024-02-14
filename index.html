@@ -8,8 +8,10 @@
     html, body {
         height: 100%;
         margin: 0;
-        background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5hHn295oQ32QV_mvb_-GQRKfuhAhakfL4jw&usqp=CAU') no-repeat center center fixed; /* Replace with your image URL */
+        background: url('https://source.unsplash.com/1600x900/?roses') no-repeat center center fixed; /* Placeholder rose image URL */
         background-size: cover;
+        color: white; /* Ensuring text is readable on potentially dark background */
+        text-shadow: 2px 2px 4px #000000; /* Text shadow for better readability */
         display: flex;
         justify-content: center;
         align-items: center;
@@ -32,7 +34,7 @@
         cursor: pointer;
     }
     .container {
-        background: rgba(255, 255, 255, 0.8);
+        background: rgba(255, 255, 255, 0.8); /* Semi-transparent background for container */
         padding: 20px;
         border-radius: 10px;
     }
@@ -40,7 +42,7 @@
 </head>
 <body>
 <div class="container">
-    <h2 id="question">Will you be my Valentine?</h2>
+    <h2 id="question">Will you be my Valentine? 🥺</h2>
     <button class="yes-button" onclick="yesResponse()">Yes</button>
     <button class="no-button" id="noButton" onclick="noResponse()">No</button>
 </div>
@@ -48,16 +50,16 @@
 <script>
 let noClicks = 0;
 const noResponses = [
-    "Are you sure?",
-    "Please say yes!",
-    "Why not give us a chance?",
-    "I'm waiting...",
-    "You're making me nervous!",
-    "Is there any hope?",
-    "Don't you like surprises?",
-    "Give it a thought...",
-    "Two's better than one!",
-    "Last chance, yes?"
+    "Are you sure? 😟",
+    "Please say yes! 😣",
+    "Why not give us a chance? 😢",
+    "I'm waiting... 😕",
+    "You're making me nervous! 😰",
+    "Is there any hope? 🥺",
+    "Don't you like surprises? 😮",
+    "Give it a thought... 🤔",
+    "Two's better than one! 😌",
+    "Last chance, yes? 😔"
 ];
 
 function yesResponse() {
@@ -67,14 +69,14 @@ function yesResponse() {
 
 function noResponse() {
     const questionElement = document.getElementById("question");
-    if (noClicks < noResponses.length) {
+        if (noClicks < noResponses.length) {
         questionElement.innerText = noResponses[noClicks];
         let yesButton = document.querySelector(".yes-button");
-        yesButton.style.fontSize = (16 + noClicks) + "px"; // Increase size less drastically
+        yesButton.style.fontSize = (16 + noClicks) + "px"; // Increase size with each click
         yesButton.style.padding = (10 + noClicks * 2) + "px";
         noClicks++;
     } else {
-        yesResponse();
+        yesResponse(); // If all responses are used, trigger the yes response
     }
 }
 </script>
