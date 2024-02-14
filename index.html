@@ -8,7 +8,7 @@
     html, body {
         height: 100%;
         margin: 0;
-        background: url('https://source.unsplash.com/featured/?romantic') no-repeat center center fixed;
+        background: url('https://images.unsplash.com/photo-1519125323398-675f0ddb6308') no-repeat center center fixed;
         background-size: cover;
         display: flex;
         justify-content: center;
@@ -48,8 +48,16 @@
 <script>
 let noClicks = 0;
 const noResponses = [
-    // Include all your custom messages, up to 30
-    // ...
+    "Are you sure?",
+    "But I have chocolates!",
+    "I'll buy you pizza!",
+    "Did I mention the flowers?",
+    "There's a cute teddy bear too...",
+    "And a secret surprise gift!",
+    "You won't regret it!",
+    "Everyone deserves a second chance, right?",
+    "Is it something I said?",
+    "Okay, last chance: are you really sure?"
 ];
 
 function yesResponse() {
@@ -58,11 +66,12 @@ function yesResponse() {
 }
 
 function noResponse() {
-    if (noClicks < 30) {
-        document.getElementById("question").innerText = noResponses[noClicks % noResponses.length]; // Cycle through messages
+    const questionElement = document.getElementById("question");
+    if (noClicks < noResponses.length) {
+        questionElement.innerText = noResponses[noClicks];
         let yesButton = document.querySelector(".yes-button");
-        yesButton.style.fontSize = (16 + noClicks * 0.5) + "px"; // Increase size less drastically
-        yesButton.style.padding = (10 + noClicks) + "px";
+        yesButton.style.fontSize = (16 + noClicks) + "px";
+        yesButton.style.padding = (10 + noClicks * 2) + "px";
         noClicks++;
     } else {
         yesResponse();
