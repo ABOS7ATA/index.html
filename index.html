@@ -5,7 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Valentine's Surprise</title>
 <style>
-    body {
+    html, body {
+        height: 100%;
+        margin: 0;
+        background: url('https://source.unsplash.com/featured/?romantic') no-repeat center center fixed;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         text-align: center;
         font-family: Arial, sans-serif;
     }
@@ -24,40 +31,38 @@
         border: none;
         cursor: pointer;
     }
+    .container {
+        background: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+    }
 </style>
 </head>
 <body>
-<h2 id="question">Will you be my Valentine?</h2>
-<button class="yes-button" onclick="yesResponse()">Yes</button>
-<button class="no-button" id="noButton" onclick="noResponse()">No</button>
+<div class="container">
+    <h2 id="question">Will you be my Valentine?</h2>
+    <button class="yes-button" onclick="yesResponse()">Yes</button>
+    <button class="no-button" id="noButton" onclick="noResponse()">No</button>
+</div>
 
 <script>
 let noClicks = 0;
 const noResponses = [
-    "Are you sure?",
-    "Are you positive?",
-    "Why didn't you choose yes?",
-    "Give it another thought, maybe?",
-    "I'm feeling hopeful!",
-    "Just imagine saying yes!",
-    "Roses are red, violets are blue, saying yes, is the best thing to do!",
-    "Almost there, try again!",
-    "I believe in us!",
-    "Last chance, yes?"
+    // Include all your custom messages, up to 30
+    // ...
 ];
 
 function yesResponse() {
     alert("Yay! You made my day! 💖");
-    document.body.style.background = "pink";
     document.body.innerHTML = '<h1 style="color: red;">💖🌹💖🌹💖</h1>' + '<p style="font-size: 24px;">Happy Valentine\'s Day!</p>';
 }
 
 function noResponse() {
-    if (noClicks < 10) {
-        document.getElementById("question").innerText = noResponses[noClicks];
+    if (noClicks < 30) {
+        document.getElementById("question").innerText = noResponses[noClicks % noResponses.length]; // Cycle through messages
         let yesButton = document.querySelector(".yes-button");
-        yesButton.style.fontSize = (16 + noClicks) + "px";
-        yesButton.style.padding = (10 + noClicks * 2) + "px";
+        yesButton.style.fontSize = (16 + noClicks * 0.5) + "px"; // Increase size less drastically
+        yesButton.style.padding = (10 + noClicks) + "px";
         noClicks++;
     } else {
         yesResponse();
