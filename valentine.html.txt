@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine's Surprise</title>
+<style>
+    body {
+        text-align: center;
+        font-family: Arial, sans-serif;
+    }
+    .yes-button {
+        background-color: lightgreen;
+        padding: 10px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    .no-button {
+        background-color: lightcoral;
+        padding: 10px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+<h2 id="question">Will you be my Valentine?</h2>
+<button class="yes-button" onclick="yesResponse()">Yes</button>
+<button class="no-button" id="noButton" onclick="noResponse()">No</button>
+
+<script>
+let noClicks = 0;
+const noResponses = [
+    "Are you sure?",
+    "Are you positive?",
+    "Why didn't you choose yes?",
+    "Give it another thought, maybe?",
+    "I'm feeling hopeful!",
+    "Just imagine saying yes!",
+    "Roses are red, violets are blue, saying yes, is the best thing to do!",
+    "Almost there, try again!",
+    "I believe in us!",
+    "Last chance, yes?"
+];
+
+function yesResponse() {
+    alert("Yay! You made my day! 💖");
+    document.body.style.background = "pink";
+    document.body.innerHTML = '<h1 style="color: red;">💖🌹💖🌹💖</h1>' + '<p style="font-size: 24px;">Happy Valentine\'s Day!</p>';
+}
+
+function noResponse() {
+    if (noClicks < 10) {
+        document.getElementById("question").innerText = noResponses[noClicks];
+        let yesButton = document.querySelector(".yes-button");
+        yesButton.style.fontSize = (16 + noClicks) + "px";
+        yesButton.style.padding = (10 + noClicks * 2) + "px";
+        noClicks++;
+    } else {
+        yesResponse();
+    }
+}
+</script>
+</body>
+</html>
